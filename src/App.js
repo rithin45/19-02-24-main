@@ -7,7 +7,7 @@ import Plot from './Components/Plots/Plot';
 import Plotdetails from './Components/Plots/Plotdetails';
 import Build from './Components/Building/Build';
 import Builddetails from './Components/Building/Builddetails';
-import Userhomepage from './utils/Userhomepage';
+import Userhomepage from './utils/Information/Userhomepage';
 import Plotview from './utils/Plotview';
 import Buildingview from './utils/Buildingview';
 import BookingDetails from './utils/BookingDetails';
