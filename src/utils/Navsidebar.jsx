@@ -28,7 +28,7 @@ const Navsidebar = () => {
 
   return (
     <div>
-      <AppBar position="static"  sx={{ backgroundColor:"green", boxShadow: 'none' }} >
+      <AppBar position="static"  sx={{ backgroundColor:"grey", boxShadow: 'none' }} >
         <Toolbar>
           <IconButton
             edge="start"
