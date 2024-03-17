@@ -13,6 +13,8 @@ const Plot = () => {
     "plocation":'',
     "pcategory":'Residential Plots'
   });
+  const [selectedImage, setSelectedImage] = useState(null);
+
 
   const inputHandler = (e) => {
     const { name, value } = e.target
@@ -20,14 +22,35 @@ const Plot = () => {
     // setInputs({ ...inputs, [name]: value });
     setInputs((prevData)=>({...prevData,[name]:value}))
   };
+  const handleImage = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
+  }
 
-  const addHandler = () => {
-    axios.post("http://localhost:3005/plot", inputs)
+  // const addHandler = () => {
+  //   axios.post("http://localhost:3005/plot", inputs)
+  //     .then((response) => {
+  //       alert("Saved");
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+  const saveData = () => {
+    const formData1 = new FormData();
+    formData1.append('pname', inputs.pname);
+    formData1.append('pprice', inputs.pprice);
+    formData1.append('plocation', inputs.plocation);
+    formData1.append('pcategory', inputs.pcategory);
+    formData1.append('image2', selectedImage);
+
+    axios.post("http://localhost:3005/plot", formData1)
       .then((response) => {
-        alert("Saved");
+        alert("Record Saved");
       })
-      .catch(err => console.log(err));
-  };
+      .catch(err => {
+        console.log(err);
+        alert("Error saving record");
+      });
+  }
 
   return (
     <div>
@@ -44,7 +67,9 @@ const Plot = () => {
         <MenuItem value="Industrial Plots">Industrial Plots</MenuItem>
       </Select><br /><br />
       
-      <Button variant="contained" onClick={addHandler}>Submit</Button>
+      <label>Upload file</label>
+        <input type="file" onChange={handleImage} /><br /><br />
+        <button className="addproduct-btn" onClick={saveData}>ADD</button>
     </div>
   );
 };

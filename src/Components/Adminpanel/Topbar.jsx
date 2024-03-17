@@ -1,7 +1,13 @@
 import './Topbar.css'
 import './Home.css'
 import { Button} from '@mui/material'
-const Topbar = (props) => {
+import { useNavigate } from 'react-router-dom';
+const Topbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate('/Ulog');
+  };
   return (
     <div className='topbar' >
       <div className="topbarwrapper">
@@ -9,7 +15,7 @@ const Topbar = (props) => {
           <p>PLOTKART</p>
         </div>
         <div className='topright'>
-        <Button variant="contained" onClick={props.xxx} >SIGN OUT</Button>
+        <Button variant="contained" onClick={handleLogout}>Logout</Button>
         </div>
       </div>
     </div>

@@ -6,6 +6,8 @@ import './Plotview.css'
 import Topbar from '../Adminpanel/Topbar';
 import Sidebar from '../Adminpanel/Sidebar';
 import Plotedit from './Plotedit';
+import { Buffer } from 'buffer';
+
 
 const Plotdetails = () => {
     var[sub,setSub]=useState([]);
@@ -35,6 +37,7 @@ const Plotdetails = () => {
                         <TableCell>Price</TableCell>
                         <TableCell>Location</TableCell>
                         <TableCell>Category</TableCell>
+                        <TableCell>Image</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -47,6 +50,9 @@ const Plotdetails = () => {
                                 <TableCell>{row.pprice}</TableCell>
                                 <TableCell>{row.plocation}</TableCell>
                                 <TableCell>{row.pcategory}</TableCell>
+                                <TableCell>
+                                    <img src={`data:image/jpeg;base64,${Buffer.from(row.image2.data).toString('base64')}`} width="50" height="50" alt='error' />
+                                </TableCell>
                                 <TableCell><EditIcon onClick={()=>updateValues(row)}/></TableCell>
                                
                             </TableRow>

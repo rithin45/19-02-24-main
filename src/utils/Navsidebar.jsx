@@ -5,6 +5,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import SearchIcon from '@mui/icons-material/Search';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import LandscapeIcon from '@mui/icons-material/Landscape';
 import { Link } from 'react-router-dom';
 import { LocalGroceryStore } from '@mui/icons-material';
 import "./Style.css";
@@ -26,7 +28,7 @@ const Navsidebar = () => {
 
   return (
     <div>
-      <AppBar position="static"  sx={{ backgroundColor:"#ED5945", boxShadow: 'none' }} >
+      <AppBar position="static"  sx={{ backgroundColor:"green", boxShadow: 'none' }} >
         <Toolbar>
           <IconButton
             edge="start"
@@ -40,7 +42,7 @@ const Navsidebar = () => {
             variant='h6'
             component="div"
             sx={{
-              flexGrow: 1,
+              flexGrow: 0,
               fontFamily: 'Cursive',
               color: '#FFFFFF',
               fontSize: '26px',
@@ -49,6 +51,9 @@ const Navsidebar = () => {
             <b>PLOTKART</b>
           </Typography>
           <InputBase
+          sx={{
+            flexGrow:0,
+          }}
             placeholder="Search..."
             inputProps={{ 'aria-label': 'search' }}
             style={{ paddingLeft: '30px' }}
@@ -66,14 +71,14 @@ const Navsidebar = () => {
         <List>
           <ListItem as={Link} to="/pview">
             <ListItemIcon>
-              <HomeIcon />
+              <LandscapeIcon/>
             </ListItemIcon>
             <ListItemText primary="Plot" />
           </ListItem>
           <Divider />
           <ListItem as={Link} to="/bview">
             <ListItemIcon>
-              <HomeIcon />
+              <LocationCityIcon/>
             </ListItemIcon>
             <ListItemText primary="Buildings" />
           </ListItem>
@@ -92,7 +97,7 @@ const Navsidebar = () => {
             <ListItemText primary="About" />
           </ListItem>
           <Divider />
-          <ListItem  as={Link} to="/cont">
+          <ListItem  as={Link} to="/cnt">
             <ListItemIcon>
               <ContactSupportIcon />
             </ListItemIcon>

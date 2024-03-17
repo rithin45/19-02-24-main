@@ -21,6 +21,13 @@ const Sidebar = () => {
       <ul>
        <a href="/bdetails"><li>View Buildings</li></a>
       </ul>
+      Bookings
+      <ul>
+      <a href='/bbooking'><li>Building Booking</li></a>
+      </ul>
+      <ul>
+       <a href="/pbooking"><li>Plot Booking</li></a>
+      </ul>
       
     </div>
   );
